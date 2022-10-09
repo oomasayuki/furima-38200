@@ -9,28 +9,43 @@ Things you may want to cover:
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
 | nickname           | string | null: false               |
-| name               | string | null: false               |
-| name_furigana      | string | null: false               |
-| date_of_bith       | string | null: false               |
+| surname            | string | null: false               |
+| first_name         | string | null: false               |
+| surname_kana       | string | null: false               |
+| first_name_kana    | string | null: false               |
+| date_of_bith       | date   | null: false               |
 
-## comments テーブル
+## addresses テーブル
 
-| Column    | Type       | Options                        |
-| ----------| ---------- | ------------------------------ |
-| content   | text       | null: false                    |
-| exhibit   | references | null: false, foreign_key: true |
-| user      | references | null: false, foreign_key: true |
+| Column         | Type       | Options                        |
+| ---------------| ---------- | ------------------------------ |
+| post_code      | integer    | null: false                    |
+| refectures_id  | integer    | null: false                    |
+| municipalities | string     | null: false                    |
+| house_number   | string     | null: false                    |
+| building       | string     |                                |
+| phone_number   | integer    | null: false                    |
+| user           | references | null: false, foreign_key: true |
 
 ## exhibits テーブル
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| product_name        | text       | null: false                    |
+| product_name        | string     | null: false                    |
 | explanation         | text       | null: false                    |
-| detail_category     | string     | null: false                    |
-| detail_situation    | string     | null: false                    |
-| delivery_charge     | string     | null: false                    |
-| delivery_area       | string     | null: false                    |
-| delivery_days       | string     | null: false                    |
-| price               | string     | null: false                    |
+| detail_category_id  | integer    | null: false                    |
+| detail_situation_id | integer    | null: false                    |
+| delivery_charge_id  | integer    | null: false                    |
+| delivery_area_id    | integer    | null: false                    |
+| delivery_days_id    | integer    | null: false                    |
+| price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
+
+
+## purchases テーブル
+
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| user      | references | null: false, foreign_key: true |
+| exhibit   | references | null: false, foreign_key: true |
+| address   | references | null: false, foreign_key: true |
