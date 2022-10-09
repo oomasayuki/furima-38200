@@ -15,17 +15,30 @@ Things you may want to cover:
 | first_name_kana    | string | null: false               |
 | date_of_bith       | date   | null: false               |
 
+### Association
+
+- belongs_to :address
+- has_many :exhibit
+- belongs_to :purchase
+
+
 ## addresses テーブル
 
-| Column         | Type       | Options                        |
-| ---------------| ---------- | ------------------------------ |
-| post_code      | integer    | null: false                    |
-| refectures_id  | integer    | null: false                    |
-| municipalities | string     | null: false                    |
-| house_number   | string     | null: false                    |
-| building       | string     |                                |
-| phone_number   | integer    | null: false                    |
-| user           | references | null: false, foreign_key: true |
+| Column            | Type       | Options                        |
+| ------------------| ---------- | ------------------------------ |
+| post_code         | string     | null: false                    |
+| delivery_area_id  | integer    | null: false                    |
+| municipalities    | string     | null: false                    |
+| house_number      | string     | null: false                    |
+| building          | string     |                                |
+| phone_number      | string     | null: false                    |
+| purchase          | references | null: false, foreign_key: true |
+
+## Association
+
+- belongs_to :user
+- belongs_to :purchase
+
 
 ## exhibits テーブル
 
@@ -37,9 +50,14 @@ Things you may want to cover:
 | detail_situation_id | integer    | null: false                    |
 | delivery_charge_id  | integer    | null: false                    |
 | delivery_area_id    | integer    | null: false                    |
-| delivery_days_id    | integer    | null: false                    |
+| delivery_day_id     | integer    | null: false                    |
 | price               | integer    | null: false                    |
-| user                | references | null: false, foreign_key: true |
+| purchase            | references | null: false, foreign_key: true |
+
+## Association
+
+- belongs_to :user
+- belongs_to :purchase
 
 
 ## purchases テーブル
@@ -48,4 +66,9 @@ Things you may want to cover:
 | --------- | ---------- | ------------------------------ |
 | user      | references | null: false, foreign_key: true |
 | exhibit   | references | null: false, foreign_key: true |
-| address   | references | null: false, foreign_key: true |
+
+## Association
+
+- belongs_to :user
+- has_many :address
+- has_many :purchase
