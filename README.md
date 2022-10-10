@@ -35,7 +35,7 @@ Things you may want to cover:
 
 ## Association
 
-- belongs_to :purchases
+- belongs_to :purchase
 
 
 ## exhibits テーブル
@@ -69,4 +69,4 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :exhibit
-- has_many :address
+- has_one :address
