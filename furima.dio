@@ -30,16 +30,10 @@
                 <mxCell id="35" value="purchases テーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
                     <mxGeometry x="414" y="480" width="270" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="36" value="user (references型、NOT NULL、外部キー)&#10;exhibit (references型、NOT NULL、外部キー)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="35">
+                <mxCell id="36" value="user (references型、NOT NULL、外部キー)&#10;exhibit (references型、NOT NULL、外部キー)&#10;address (references型、NOT NULL、外部キー)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="35">
                     <mxGeometry y="26" width="270" height="64" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" style="edgeStyle=none;html=1;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;exitX=0.402;exitY=-0.004;exitDx=0;exitDy=0;entryX=0.463;entryY=1.022;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="23" target="3">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="290" y="370" as="targetPoint"/>
-                        <mxPoint x="360" y="390" as="sourcePoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="41" style="edgeStyle=none;html=1;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1">
+                <mxCell id="41" style="edgeStyle=none;html=1;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="542" y="340" as="targetPoint"/>
                         <mxPoint x="541.86" y="480" as="sourcePoint"/>

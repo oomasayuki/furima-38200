@@ -17,9 +17,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :address
-- has_many :exhibit
-- belongs_to :purchase
+- has_many :exhibits
+- has_many :purchases
 
 
 ## addresses テーブル
@@ -36,8 +35,7 @@ Things you may want to cover:
 
 ## Association
 
-- belongs_to :user
-- belongs_to :purchase
+- has_many :purchases
 
 
 ## exhibits テーブル
@@ -52,12 +50,12 @@ Things you may want to cover:
 | delivery_area_id    | integer    | null: false                    |
 | delivery_day_id     | integer    | null: false                    |
 | price               | integer    | null: false                    |
-| purchase            | references | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
 
 ## Association
 
 - belongs_to :user
-- belongs_to :purchase
+- has_one :purchase
 
 
 ## purchases テーブル
@@ -66,9 +64,10 @@ Things you may want to cover:
 | --------- | ---------- | ------------------------------ |
 | user      | references | null: false, foreign_key: true |
 | exhibit   | references | null: false, foreign_key: true |
+| address   | references | null: false, foreign_key: true |
 
 ## Association
 
 - belongs_to :user
-- has_many :address
-- has_many :purchase
+- belongs_to :exhibit
+- belongs_to :address
