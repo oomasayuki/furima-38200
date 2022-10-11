@@ -38,7 +38,7 @@ Things you may want to cover:
 - belongs_to :purchase
 
 
-## exhibits テーブル
+## exhibits（items） テーブル
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
