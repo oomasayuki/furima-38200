@@ -17,7 +17,7 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :exhibits
+- has_many :exhibits(items)
 - has_many :purchases
 
 
@@ -68,5 +68,5 @@ Things you may want to cover:
 ## Association
 
 - belongs_to :user
-- belongs_to :exhibit
+- belongs_to :exhibit(item)
 - has_one :address
