@@ -31,27 +31,27 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Explanation is too long (maximum is 1000 characters)')
     end
-    it 'detail_categoryが---では登録できない' do
-      @item.detail_category_id = 1
+    it 'detail_categoryが未選択では登録できない' do
+      @item.detail_category_id = '1'
       @item.valid?
       expect(@item.errors.full_messages).to include("Detail category can't be blank")
     end
-    it 'detail_situationが---では登録できない' do
-      @item.detail_situation_id = 1
+    it 'detail_situationが未選択では登録できない' do
+      @item.detail_situation_id = '1'
       @item.valid?
       expect(@item.errors.full_messages).to include("Detail situation can't be blank")
     end
-    it 'delivery_chargeが---では登録できない' do
-      @item.delivery_charge_id = 1
+    it 'delivery_chargeが未選択では登録できない' do
+      @item.delivery_charge_id = '1'
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery charge can't be blank")
     end
-    it 'delivery_areaが---では登録できない' do
-      @item.delivery_area_id = 1
+    it 'delivery_areaが未選択では登録できない' do
+      @item.delivery_area_id = '1'
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery area can't be blank")
     end
-    it 'delivery_dayが---では登録できない' do
+    it 'delivery_dayが未選択では登録できない' do
       @item.delivery_day_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery day can't be blank")
@@ -64,17 +64,23 @@ RSpec.describe Item, type: :model do
     it 'priceが299円以下では登録できない' do
       @item.price = Faker::Number.between(from: 0, to: 299)
       @item.valid?
-      expect(@item.errors.full_messages).to include('Price is not included in the list')
+      expect(@item.errors.full_messages).to include('Price は ¥300~9,999,999 の間で半角数字で指定してください')
     end
     it 'priceが10000000円以上では登録できない' do
       @item.price = Faker::Number.between(from: 10_000_000, to: 999_999_999)
       @item.valid?
-      expect(@item.errors.full_messages).to include('Price is not included in the list')
+      expect(@item.errors.full_messages).to include('Price は ¥300~9,999,999 の間で半角数字で指定してください')
     end
     it 'priceが半角数値でないと登録できない' do
       @item.price = 'aaa'
       @item.valid?
-      expect(@item.errors.full_messages).to include('Price is not included in the list')
+      expect(@item.errors.full_messages).to include('Price は ¥300~9,999,999 の間で半角数字で指定してください')
     end
+    it 'ユーザーが紐付いていなければ出品できない' do
+      @item.user = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include('User must exist')
+    end
+    
   end
 end
