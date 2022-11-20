@@ -70,3 +70,5 @@ gem 'active_hash'
 group :production do
   gem 'pg'
 end
+
+gem 'payjp'
