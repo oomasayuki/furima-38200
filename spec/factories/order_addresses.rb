@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :order_address do
-    association :user
-    association :item
 
     post_code              { Faker::Lorem.characters(number: 3, min_numeric: 3) + '-' + Faker::Lorem.characters(number: 4, min_numeric: 4)}
     delivery_area_id       { Faker::Number.between(from: 2, to: 10) }
