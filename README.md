@@ -18,7 +18,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :exhibits(items)
-- has_many :purchases
+- has_many :purchases(orders)
 
 
 ## addresses テーブル
@@ -31,11 +31,11 @@ Things you may want to cover:
 | house_number      | string     | null: false                    |
 | building          | string     |                                |
 | phone_number      | string     | null: false                    |
-| purchase          | references | null: false, foreign_key: true |
+| order             | references | null: false, foreign_key: true |
 
 ## Association
 
-- belongs_to :purchase
+- belongs_to :purchase(order)
 
 
 ## exhibits（items） テーブル
@@ -55,10 +55,10 @@ Things you may want to cover:
 ## Association
 
 - belongs_to :user
-- has_one :purchase
+- has_one :purchase(order)
 
 
-## purchases テーブル
+## purchases(orders) テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
